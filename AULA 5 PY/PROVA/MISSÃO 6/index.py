@@ -3,7 +3,7 @@ print("Tente sair da masmorra!")
 lista = []
 
 for i in range(10, 31):
-        
+
     if i % 2 > 0:
         lista.append(i)
 
@@ -13,15 +13,15 @@ print("Um desses numeros te liberta da masmorra!")
 
 while True:
 
-    numeros = int(input("Digite um numero entre 10 e 30 que seja primo para sair da masmorra: "))
+    numeros = input("Digite um numero entre 10 e 30 que seja primo para sair da masmorra: ")
 
-    if numeros == 21:
-        print("Você estar livre da masmorra!")
-        break
-    else:
-        print("Tente Novamente!")
+    try:
+        numeros = int(numeros)
 
-    if numeros in lista:
-        continue
-    else:
-        print("Numero invalido, tente novamente (digite um numero entre 10 e 30)")
+        if numeros == 21:
+            print("Você estar livre da masmorra!")
+            break
+        elif numeros not in lista:
+            print("Esse numero não é primo!")
+    except ValueError:
+        print("Digite um numero valido!")
